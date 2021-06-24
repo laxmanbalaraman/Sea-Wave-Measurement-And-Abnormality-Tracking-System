@@ -34,7 +34,7 @@ void loop() {
     HTTPClient https;
     HTTPClient https2;
     
-    if (https.begin(*client, "https://tidespy.com/api/tideturns?pn=1341&unit=m&start=20210605&days=3&key=y78I5sZQtg6YEPlGV0zSr2nJbOUBLoh1")) {  // HTTPS
+    if (https.begin(*client, "https://tidespy.com/api/tideturns?pn=1341&unit=m&start=20210605&days=3&key=<YOUR-API-KEY>")) {  // HTTPS
       // start connection and send HTTP header
       int httpCode = https.GET();
       // httpCode will be negative on error
@@ -46,7 +46,7 @@ void loop() {
       delay(1000);
       if (Serial.available()){
        a = Serial.readStringUntil('\r');
-       if (https2.begin(*client, "https://api.ipgeolocation.io/timezone?apiKey=88b4d540f7e4413baf2bae276058c37d")){
+       if (https2.begin(*client, "https://api.ipgeolocation.io/timezone?apiKey=<YOUR-API-KEY>")){
         int httpCode = https2.GET();
          if (httpCode > 0){
           if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY){
